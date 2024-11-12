@@ -17,17 +17,13 @@ const Footer = () => {
 }
 
 const App = () => {
-  const friends = [
-    { name: "Aleks", age: 2 },
-    { name: "Kaupo", age: -2 }
-  ]
+  const friends = [ "Kaupo Sokhin", "Kardo SOkhin"]
 
-  return [
+  return (
     <div>
-      <p>{friends[0].name} {friends[0].age}</p>
-      <p>{friends[1].name} {friends[1].age}</p>
+      <p>{friends}</p>
     </div>
-  ]
+  )
 }
 
 export default App
