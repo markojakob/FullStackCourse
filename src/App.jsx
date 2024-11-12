@@ -6,6 +6,8 @@ const Hello = (props) => {
   )
 }
 
+//git
+
 const App = () => {
   const name = "Aleks"
   const age = 10
