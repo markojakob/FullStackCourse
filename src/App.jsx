@@ -1,58 +1,33 @@
- /*
- const Hello = (props) => {
-  return (
-    <div>
-      <p>Hello {props.name}, you are {props.age} years old.</p>
-    </div>
-  )
-}
-
-//git
-
-const Footer = () => {
-  return (
-    <div>
-      greeting app created by <a href="https://github.com/GertenP">Gerten Pilv</a>
-    </div>
-  )
-}
+import { useState } from 'react'
 
 const App = () => {
-  const friends = [ "Kaupo Sokhin", "Kardo SOkhin"]
+  const [counter, setCounter] = useState(0)
+  console.log('rendering with counter value', counter)
 
+  const increaseByOne = () => {
+    console.log('increasing, value before', counter)
+    setCounter(counter + 1)
+  }
+
+  const decreaseByOne = () => { 
+    console.log('decreasing, value before', counter)
+    setCounter(counter - 1)
+  }
+
+  const setToZero = () => {
+    console.log('resetting to zero, value before', counter)
+    setCounter(0)
+  }
+
+  const Display = ({ counter }) => <div>{counter}</div>
+
+const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
   return (
     <div>
-      <p>{friends}</p>
-    </div>
-  )
-}
-*/
-
-const Hello = (props) => {
-  const {name, age } = props
-
-  const bornYear = () => new Date().getFullYear() - age
-  
-
-  return (
-    <div>
-      <p>
-        Hello {name}, you are {age} years old
-      </p>
-      <p>So you were probably born in {bornYear()}</p>
-    </div>
-  )
-}
-
-const App = () => {
-  const name = "Mark"
-  const age = 10
-
-  return (
-    <div>
-      <h1>Greetings</h1>
-      <Hello name="Mark" age={26 + 10} />
-      <Hello name={name} age={age} />
+      <Display counter={counter} />
+      <Button onClick={increaseByOne} text="plus" />
+      <Button onClick={setToZero} text="zero" />
+      <Button onClick={decreaseByOne} text="minus" />
     </div>
   )
 }
